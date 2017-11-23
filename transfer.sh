@@ -25,3 +25,7 @@ scp -r hostA:/path/filename pathB
 pathC=
 #Putting to host C
 scp -r pathB/filename hostC:/pathC
+
+
+
+
