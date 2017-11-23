@@ -28,7 +28,7 @@ pathC='/usr/local'
 while [ true ]
 do
     #Getting file from host A
-    scp -r hostA:/$pathA/$filename $pathB
+    scp -r $hostA:/$pathA/$filename $pathB
     
     #Putting to host C
     scp -r $pathB/$filename hostC:/$pathC
