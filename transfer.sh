@@ -13,12 +13,14 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub $hostC
 #set time rotate for getting file
 $time=10
 
-#Path of file want to get in host A
+#Path of folder contain file in host A
 pathA='/usl/local'
-filename='test.txt'
+
+#Lastest file modified
+file=ssh $hostA ls $pathA -1t | head 1
 
 #path save in host B
-pathB='/root/Desktop'
+pathB='/home'
 
 #path save in host C
 pathC='/usr/local'
@@ -26,10 +28,10 @@ pathC='/usr/local'
 while [ true ]
 do
     #Getting file from host A
-    scp -r $hostA:/$pathA/$filename $pathB
+    scp -r $hostA:/$pathA/$file $pathB
     
     #Putting to host C
-    scp -r $pathB/$filename hostC:/$pathC
+    scp -r $pathB/$file hostC:/$pathC
     
     #Rotate at second(s) time
     sleep $time
