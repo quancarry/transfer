@@ -20,10 +20,8 @@ filename='test.txt'
 #path save in host B
 pathB='/root/Desktop'
 
-
 #path save in host C
 pathC='/usr/local'
-
 
 while [ true ]
 do
